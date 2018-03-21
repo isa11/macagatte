@@ -4,12 +4,17 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Form\registraterClientType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use FOS\UserBundle\Entity\UserManager;
-use AppBundle\Entity\Utilisateur;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
+
+// use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+// use AppBundle\Form\registrationType;
+// use Symfony\Component\HttpFoundation\Request;
+// use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
+
 
 class UtilisateurController extends Controller
 {
@@ -18,7 +23,7 @@ class UtilisateurController extends Controller
     /**
      * @Route("/client", name="client")
      */
-    public function registerClientAction(Request $reques)
+    public function registerClientAction(Request $reques, UserPasswordEncoderInterface $passwordEncoder)
     {
         // return new Response("test");
         $utilisateur = new Utilisateur();
