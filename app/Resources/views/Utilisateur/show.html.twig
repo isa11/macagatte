@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Utilisateur</h1>
+
+    {{ form_start(show_form) }}
+    {{ form_widget(show_form) }}
+    <input type="submit" value="Edit" />
+    {{ form_end(show_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('utilisateur_index') }}">Back to the list</a>
+        </li>
+
+    </ul>
+{% endblock %}
