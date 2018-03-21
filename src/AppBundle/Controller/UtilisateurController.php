@@ -47,13 +47,14 @@ class UtilisateurController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the utilisateur
 
-            return $this->redirectToRoute('app_utilisateur');
+            // return $this->redirectToRoute('app_utilisateur');
+            return $this->redirectToRoute('user_registration');
         }
 
         return $this->render(
             'utilisateur/utilisateur.html.twig',
         array('form' => $form->createView())
+        );
         
-    );
 }
 }

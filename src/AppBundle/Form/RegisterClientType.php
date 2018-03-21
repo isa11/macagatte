@@ -23,8 +23,7 @@ class RegisterClientType extends AbstractType
             ->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('tel', TextType::class, array('label'=> 'tel','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('localiser');
-            // ->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            // ->add('codePostal', TextType::class, array('label'=> 'codePostal','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')));
+            
     }
     
 

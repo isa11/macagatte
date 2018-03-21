@@ -16,47 +16,30 @@ class UtilisateurType extends AbstractType
     
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('adresse')->add('tel')->add('entreprise')->add('description')->add('img')->add('nSiren')->add('localiser');
-        // $builder->add('nom', TextType::class, array('label'=> 'nom', 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-        //     ->add('prenom', TextType::class, array('label'=> 'prenom','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-        //     ->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-        //     ->add('tel', TextType::class, array('label'=> 'tel','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+    
+        $builder->add('nom', TextType::class, array('label'=> 'nom', 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('prenom', TextType::class, array('label'=> 'prenom','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('tel', TextType::class, array('label'=> 'tel','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('localiser');
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    
+    public function getParent()
+
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Utilisateur'
-        ));
+        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
     }
-
     
-    // public function getBlockPrefix()
-    // {
-    //     return 'appbundle_utilisateur';
-
-    // }
-
-    // public function getName()
-    // {
-    //     return $this->getBlockPrefix();
+    public function getBlockPrefix()
     
-    // }
-    // public function getParent()
-
-    // {
-    //     return 'FOS\UserBundle\Form\Type\RegistrationFormType';
-    // }
+    {
+        return 'app_user_registration';
+    }
     
-    // public function getBlockPrefix()
+    public function getName()
     
-    // {
-    //     return 'app_user_registration';
-    // }
-    
-    // public function getName()
-    
-    // {
-    //     return $this->getBlockPrefix();
-    // }
+    {
+        return $this->getBlockPrefix();
+    }
 }
