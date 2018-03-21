@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Responset;
 use AppBundle\Form\UtilisateurType;
 use AppBundle\Entity\Utilisateur;
 
@@ -31,7 +32,7 @@ class UtilisateurController extends Controller
         $form = $this->createForm(UtilisateurType::class, $utilisateur);
 
         // 2) handle the submit (will only happen on POST)
-        $form = $handleRequest($request);
+        // $form = $handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
@@ -46,14 +47,13 @@ class UtilisateurController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the utilisateur
 
-            return $this->redirectToRoute('user_registration');
+            return $this->redirectToRoute('app_utilisateur');
         }
 
         return $this->render(
-            'Utilisateur/utilisateur.html.twig',
-            array('form' => $form->createView())
-        );
-    }
-
-
+            'utilisateur/utilisateur.html.twig',
+        array('form' => $form->createView())
+        
+    );
+}
 }
