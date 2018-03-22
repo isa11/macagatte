@@ -18,16 +18,16 @@ class RegistrationType extends AbstractType
     {
             
     $builder->add('nom', TextType::class, array('label'=> 'nom', 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('prenom', TextType::class, array('label'=> 'prenom','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('tel', TextType::class, array('label'=> 'tel','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('entreprise', TextType::class, array('label'=> 'entreprise','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('description', TextareaType::class, array('label'=> 'description','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('img', TextType::class, array('label'=> 'img','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('nSiren', TextType::class, array('label'=> 'nSiren','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('localiser');
+            ->add('prenom', TextType::class, array('label'=> 'prenom','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')));
             // ->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            // ->add('codePostal', TextType::class, array('label'=> 'codePostal','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')));
+            // ->add('tel', TextType::class, array('label'=> 'tel','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            // ->add('entreprise', TextType::class, array('label'=> 'entreprise','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            // ->add('description', TextareaType::class, array('label'=> 'description','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            // ->add('img', TextType::class, array('label'=> 'img','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            // ->add('nSiren', TextType::class, array('label'=> 'nSiren','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            // ->add('localiser');
+            // // ->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            // // ->add('codePostal', TextType::class, array('label'=> 'codePostal','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')));
     }
     
 
