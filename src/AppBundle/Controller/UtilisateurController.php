@@ -23,7 +23,7 @@ class UtilisateurController extends Controller
 
 
     /**
-     * @Route("/client", name="client")
+     * @Route("/register/client", name="client")
      */
     public function registerClientAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
