@@ -95,10 +95,11 @@ class Localiser
     {
         return $this->codePostal;
     }
-
+    
+    
     public function __toString()
     {
         return $this->codePostal .$this->ville ;
-
+        
     }
 }
