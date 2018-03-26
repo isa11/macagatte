@@ -23,12 +23,13 @@ class UtilisateurController extends Controller
 
 
     /**
-     * @Route("/register/client", name="client")
+     * @Route("/client", name="client")
      */
     public function registerClientAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         // return new Response("test");
         $utilisateur = new Utilisateur();
+
         $form = $this->createForm(UtilisateurType::class, $utilisateur);
 
         // 2) handle the submit (will only happen on POST)
@@ -38,6 +39,7 @@ class UtilisateurController extends Controller
             // 3) Encode the password (you could also do this via Doctrine listener)
             $password = $passwordEncoder->encodePassword($utilisateur, $utilisateur->getPlainPassword());
             $utilisateur->setPassword($password);
+            $utilisateur->setRole('ROLE_USER');
 
             // 4) save the utilisateur!
             $em = $this->getDoctrine()->getManager();
@@ -48,7 +50,7 @@ class UtilisateurController extends Controller
             // maybe set a "flash" success message for the utilisateur
 
             // return $this->redirectToRoute('app_utilisateur');
-            return $this->redirectToRoute('user_registration');
+            // return $this->redirectToRoute('user_registration');
         }
 
         return $this->render(

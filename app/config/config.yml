@@ -180,3 +180,5 @@ easy_admin:
             class: AppBundle\Entity\Produit
         Categorie:
             class: AppBundle\Entity\Categorie
+        Commande:
+            class: AppBundle\Entity\Commande
