@@ -183,7 +183,7 @@ easy_admin:
                     - Entreprise
                     - nSiren
                     - localiser
-                
+                    - img
 
         Produit:
             class: AppBundle\Entity\Produit
