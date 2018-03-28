@@ -32,6 +32,7 @@ class Utilisateur extends BaseUser
      */
     private $nom;
 
+
     /**
      * @var string
      *
@@ -68,23 +69,13 @@ class Utilisateur extends BaseUser
     private $description;
 
      /**
-     * @ORM\Column(type="string", length=255)
      * @var string
+     * 
+     * @ORM\Column(name="uti_img", type="string", length=255)
      */
-    private $image;
+    private $img;
 
-    // /**
-    //  * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
-    //  * @var File
-    //  */
-    // private $imageFile;
-
-    // /**
-    //  * @ORM\Column(type="datetime")
-    //  * @var \DateTime
-    //  */
-    // private $updatedAt;
-    /**
+    /*
      * @var string
      *
      * @ORM\Column(name="uti_nSiren", type="string", length=255)
@@ -260,6 +251,30 @@ class Utilisateur extends BaseUser
     }
 
     /**
+     * Set image
+     *
+     * @param string $img
+     *
+     * @return Utilisateur
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string
+     */
+    public function getimg()
+    {
+        return $this->img;
+    }
+
+    /**
      * Set nSiren
      *
      * @param string $nSiren
@@ -282,7 +297,8 @@ class Utilisateur extends BaseUser
     {
         return $this->nSiren;
     }
-
+    
+    
     
 
     /**
@@ -317,27 +333,4 @@ class Utilisateur extends BaseUser
 
     
 
-    /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Utilisateur
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
 }
