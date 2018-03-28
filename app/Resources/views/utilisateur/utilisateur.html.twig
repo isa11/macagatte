@@ -1,15 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-<h1>Inscrivez vous<h1>
 {% endblock %}
 {%block content%}
-{% trans_default_domain 'FOSUserBundle' %}
+<!-- {% trans_default_domain 'FOSUserBundle' %} -->
 
-{% include "@FOSUser/Registration/register_content.html.twig" %}
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                    <h1>Inscrivez vous</h1>
+{% include "@FOSUser/Registration/register_content.html.twig" %} 
+    {{ form_start(form, {'method': 'post', 'action': path('client'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
-    {{ form_widget(form) }}
-
+    
     {# <div>
         <input type="submit" value="{{ 'registration.submit'|trans }}" />
     </div> #}
