@@ -4,40 +4,28 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use AppBundle\Form\registrationType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Responset;
-use AppBundle\Form\UtilisateurType;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use AppBundle\Entity\Utilisateur;
 
 
-// use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-// use AppBundle\Form\registrationType;
-// use Symfony\Component\HttpFoundation\Request;
-// use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
-
-
-class UtilisateurController extends Controller
+class registrationController extends Controller
 {
-
-
     /**
-     * @Route("/client", name="client")
+     * @Route("/admin", name="admin")
      */
-    public function registerClientAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function registrationAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
-        // return new Response("test");
+        // 1) build the form
         $utilisateur = new Utilisateur();
-
-        $form = $this->createForm(UtilisateurType::class, $utilisateur);
+        $form = $this->createForm(UserType::class, $utilisateur);
 
         // 2) handle the submit (will only happen on POST)
-        // $form = $handleRequest($request);
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $utilisateur->setRole(array('ROLE_ADMIN'));
             $password = $passwordEncoder->encodePassword($utilisateur, $utilisateur->getPlainPassword());
             $utilisateur->setPassword($password);
 
@@ -49,14 +37,12 @@ class UtilisateurController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the utilisateur
 
-            // return $this->redirectToRoute('app_utilisateur');
             return $this->redirectToRoute('user_registration');
         }
 
         return $this->render(
-            'utilisateur/utilisateur.html.twig',
-        array('form' => $form->createView())
+            'register/register.html.twig',
+            array('form' => $form->createView())
         );
-        
-}
+    }
 }
