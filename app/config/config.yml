@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    app.path.utilisateur_images: /Uplaods/images/Utilisateur
 
 framework:
     #esi: ~
@@ -103,7 +104,7 @@ assetic:
                 - "%kernel.root_dir%/../vendor/components/jquery/jquery.min.js"            
             filters: [?yui_js]
             output: js/jquery.min.js
-           
+
         bootstrap_css:
             inputs:
                 - "%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less"
@@ -146,6 +147,15 @@ assetic:
 
             output: "fonts/glyphicons-halflings-regular.woff"
 
+# vich_uploader: 
+#     db_driver: orm 
+#     mappings: 
+#         utilisateur:  
+#             uri_prefix: '%app.path.utilisteur_images%'
+#             upload_destination: '%kernel.root_dir%/../web/Utilisateur' 
+#             namer: vich_uploader.namer_uniqid
+
+
 easy_admin:
     site_name: 'Ma Cagette'
     design:
@@ -153,6 +163,7 @@ easy_admin:
         #color_scheme: 'light'
         form_theme: 'vertical'
         assets:
+            favicon: '/assets/backend/favicon.png'
             css:
                 # HTTP protocol-relative URL
                 - '//example.org/css/admin1.css'
@@ -162,23 +173,37 @@ easy_admin:
     entities:
         Utilisateur:
             class: AppBundle\Entity\Utilisateur
-            # list:
-            # fields:
+            list:
+                title: Producteur
+                fields:
+                    - Nom
+                    - Prenom
+                    - Tel
+                    - description
+                    - Entreprise
+                    - nSiren
+                    - localiser
+                
 
-            #     - id
-            #     - nom
-            #     - email
-            # field:
-            #     - nom
-            #     - email
-            #     - enabled
-            #     - lastLogin
-            #     # if administrators are allowed to edit users' passwords and roles, add this:
-            #     - { property: 'plainPassword', type: 'text', type_options: { required: false } }
-            #     - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
         Produit:
             class: AppBundle\Entity\Produit
+            list:
+                fields:
+                    - nom
+                    - categorie 
+                    - utilisateur 
+                    - description
+                    - prix
         Categorie:
             class: AppBundle\Entity\Categorie
+            list:
+                fields:
+                    - nom   
+            show:
+                fields:
+                    - nom
+            form:
+                fields: 
+                    - nom
         Commande:
             class: AppBundle\Entity\Commande
