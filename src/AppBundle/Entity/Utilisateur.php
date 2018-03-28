@@ -4,6 +4,9 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 // use Symfony\Component\Validator\Constraints as Assert;
 
  /**
@@ -60,17 +63,27 @@ class Utilisateur extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="uti_description", type="string", length=255)
+     * @ORM\Column(name="uti_description", type="text", length=255)
      */
     private $description;
 
-    /**
+     /**
+     * @ORM\Column(type="string", length=255)
      * @var string
-     *
-     * @ORM\Column(name="uti_img", type="string", length=255)
      */
-    private $img;
+    private $image;
 
+    // /**
+    //  * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
+    //  * @var File
+    //  */
+    // private $imageFile;
+
+    // /**
+    //  * @ORM\Column(type="datetime")
+    //  * @var \DateTime
+    //  */
+    // private $updatedAt;
     /**
      * @var string
      *
@@ -247,30 +260,6 @@ class Utilisateur extends BaseUser
     }
 
     /**
-     * Set img
-     *
-     * @param string $img
-     *
-     * @return Utilisateur
-     */
-    public function setImg($img)
-    {
-        $this->img = $img;
-
-        return $this;
-    }
-
-    /**
-     * Get img
-     *
-     * @return string
-     */
-    public function getImg()
-    {
-        return $this->img;
-    }
-
-    /**
      * Set nSiren
      *
      * @param string $nSiren
@@ -307,7 +296,9 @@ class Utilisateur extends BaseUser
     {
         $this->localiser = $localiser;
 
-        return $this;
+        $this;
+
+    
     }
 
     /**
@@ -325,4 +316,28 @@ class Utilisateur extends BaseUser
     
 
     
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Utilisateur
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
 }

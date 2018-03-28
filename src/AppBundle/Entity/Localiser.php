@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Localiser
@@ -34,8 +36,12 @@ class Localiser
      * @ORM\Column(name="loc_code_postal", type="string", length=255, nullable=true)
      */
     private $codePostal;
-
-
+    
+        public function __construct()
+    {
+        $this->ville = new ArrayCollection();
+        $this->codePostal = new ArrayCollection();
+    }
 
 
     /**
