@@ -13,8 +13,8 @@ class LocaliserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-        ->add('codePostal', TextType::class, array('label'=> 'codePostal','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')));
+        $builder->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array                 ('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+                ->add('codePostal', TextType::class, array('label'=> 'codePostal','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')));
     }/**
      * {@inheritdoc}
      */

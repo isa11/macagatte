@@ -6,6 +6,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use AppBundle\Entity\Utilisateur;
 use AppBundle\Entity\Localiser;
             
@@ -24,15 +26,14 @@ class RegistrationType extends AbstractType
             ->add('entreprise', TextType::class, array('label'=> 'entreprise','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('description', TextareaType::class, array('label'=> 'description','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('img', TextType::class, array('label'=> 'img','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('nSiren', TextType::class, array('label'=> 'nSiren','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')));
+            ->add('nSiren', TextType::class, array('label'=> 'nSiren','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            // ->add('localiser');
+            ->add(
+            $builder->create('localiser', FormType::class, array('by_reference' => true))
+                    ->add('ville', TextType::class)
+                    ->add('codePostal', TextType::class)
+            );            
             
-        //     ->add('localiser', CollectionType::class, array(
-        //         'entry_type' => LocaliserType::class,
-        //     // these options are passed to each "email" type
-        //     'entry_options' => array(
-        //         'attr' => array('class' => 'localiser'),
-        //     ),
-        // ));
             // ->add('adresse', TextType::class, array('label'=> 'adresse','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             // ->add('codePostal', TextType::class, array('label'=> 'codePostal','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')));
     }
