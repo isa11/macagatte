@@ -4,16 +4,16 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use AppBundle\Form\registrationType;
+use AppBundle\Form\RegistrationType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use AppBundle\Entity\Utilisateur;
 
 
-class registrationController extends Controller
+class RegistrationController extends Controller
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/register", name="register")
      */
     public function registrationAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
