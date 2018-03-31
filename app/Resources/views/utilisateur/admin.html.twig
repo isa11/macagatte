@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% include "@FOSUser/Registration/register_content.html.twig" %} 
+{% include "navbar.html.twig" %} 
+
+<h1>Bienvenue Admin</h1>
+
+<div><a href="{{path('fos_user_security_logout')}}"></a>Veuillez-vous déonnectez</div>
+
+
+
+
+
+{% endblock %}

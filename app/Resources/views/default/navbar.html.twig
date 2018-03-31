@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body%}
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{path('homepage')}}">Ma Cagette</a> 
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="produit laitier">Produit Laitier</a></li>
+            <li><a href="fruits">Fruits</a></li>
+            
+    
+        </ul>
+    </div>
+</nav>
+
+<p style='color:red'>test</p>
+
+<div id="massage_notice">
+    {%for flashMessage in app.session.get('notice') %}
+            {{flashMessage}}
+    {% endfor %}
+</div>
+        
+{% endblock %}

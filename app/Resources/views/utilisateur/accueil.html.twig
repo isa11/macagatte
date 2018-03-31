@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %} 
+{% block fos_user_content %}
+{% include "@FOSUser/Registration/register_content.html.twig" %} 
+    <h1>Bienvenue</h1>
+
+
+<div><a href="{{path("fos_user_security_check")}}"></a>Veuillez-vous connectez</div>  
+
+
+{% endblock fos_user_content %}
+
+
+ {% endblock %}
