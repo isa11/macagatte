@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+{% include "@FOSUser/Registration/register_content.html.twig" %} 
+{% include "navbar.html.twig" %} 
+
+
+<h5>Vous êtes connecter à votre compte avec succes</h5>
+
+<div><a href="{{path('client')}}"></a>Accedez à votre espace</div>
+<div><a href="{{path('admin')}}"></a>Accedez à votre espace</div>
+<div><a href="{{path('productuteur')}}"></a>Accedez à votre espace</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
